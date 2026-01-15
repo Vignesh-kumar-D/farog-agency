@@ -1,0 +1,37 @@
+# Project Rules & Preferences
+
+## Design System
+- **Theme Colors**: Midnight-green (#041c18, #062521, #08322c, #0b4139) and Cream (#fbf7ef, #f4eedf, #e8dec9)
+- **Primary Color**: Midnight-green (use for buttons, CTAs, accents, and primary elements)
+- **Primary Background**: Black (#000000) - very dark
+- **Primary Text**: Cream/light colors for contrast
+- **Accent Colors**: Use midnight-green for CTAs and highlights (cream is secondary)
+
+## Responsive Design
+- **Mobile-first approach**: Design for mobile, then scale up
+- **Breakpoints**: 
+  - Mobile: < 720px
+  - Tablet: 720px - 980px
+  - Desktop: > 980px
+- **All components must be fully responsive**
+- **Test on mobile, tablet, and desktop viewports**
+
+## Code Standards
+- Use semantic HTML5 elements
+- CSS custom properties (variables) for colors and spacing
+- Modern CSS (Grid, Flexbox, clamp() for responsive sizing)
+- Vanilla JavaScript (no frameworks unless specified)
+- Accessibility: ARIA labels, semantic HTML, keyboard navigation
+- Performance: Optimize images, minimize CSS/JS, use efficient selectors
+
+## Project Context
+- **Type**: Content Creator Agency Website
+- **Purpose**: Showcase agency services, portfolio, and convert visitors to clients
+- **Target Audience**: Content creators, influencers, brands looking for creator partnerships
+
+## Always Remember
+- Keep the midnight-green and cream theme consistent across all components
+- Ensure all sections are responsive and work on all devices
+- Maintain accessibility standards (WCAG AA minimum)
+- Use smooth, subtle animations (respect prefers-reduced-motion)
+- Keep code clean, commented, and maintainable

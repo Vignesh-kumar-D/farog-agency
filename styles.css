@@ -524,6 +524,15 @@ a {
   margin-top: 8px !important;
 }
 
+.about-cta {
+  font-size: clamp(16px, 1.8vw, 18px) !important;
+  color: var(--ink) !important;
+  font-weight: 600;
+  margin-top: 12px !important;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244, 238, 223, 0.15);
+}
+
 .about-me-image {
   position: relative;
   border-radius: var(--radius-lg);

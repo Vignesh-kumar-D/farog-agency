@@ -473,33 +473,91 @@ a {
   color: var(--ink-muted);
 }
 
-/* Featured Logos */
-.section-featured {
-  padding: clamp(40px, 6vw, 60px) 0;
+/* About Me Section */
+.section-about-me {
+  padding: clamp(60px, 8vw, 100px) 0;
 }
 
-.logos-grid {
+.about-me-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: center;
 }
 
-.logo-item {
-  padding: 20px;
-  border: 1px solid var(--stroke);
-  background: rgba(8, 50, 44, 0.2);
-  border-radius: var(--radius-md);
-  text-align: center;
+.about-me-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-me-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-intro {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+}
+
+.about-intro strong {
+  color: var(--cream-100);
+  text-shadow: 0 0 8px var(--cream-glow);
+}
+
+.about-me-text p {
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.7;
   color: var(--ink-muted);
-  font-weight: 600;
-  transition: all 180ms var(--ease);
+  margin: 0;
 }
 
-.logo-item:hover {
-  border-color: var(--stroke-2);
-  background: rgba(8, 50, 44, 0.35);
-  transform: translateY(-2px);
+.about-tagline {
+  font-size: clamp(17px, 2vw, 20px);
+  font-style: italic;
+  color: var(--cream-100);
+  text-shadow: 0 0 6px var(--cream-glow);
+  margin-top: 8px !important;
+}
+
+.about-me-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--glow-combined), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(244, 238, 223, 0.15);
+  transition: transform 300ms var(--ease);
+}
+
+.about-me-image:hover .about-photo {
+  transform: scale(1.02);
+}
+
+.about-me-image::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--midnight-800), var(--cream-100), var(--midnight-700));
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(12px);
+  transition: opacity 300ms var(--ease);
+}
+
+.about-me-image:hover::before {
+  opacity: 0.5;
 }
 
 /* Work Grid */
@@ -1107,6 +1165,15 @@ textarea {
 
 /* Responsive Design */
 @media (max-width: 980px) {
+  .about-me-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-me-image {
+    order: -1;
+  }
+
   .work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

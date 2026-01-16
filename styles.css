@@ -455,22 +455,65 @@ a {
 
 /* Hero Section */
 .hero {
-  padding: clamp(60px, 8vw, 120px) 0 clamp(40px, 6vw, 80px);
   position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.hero-tagline-main {
+  margin: 0 0 20px;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--cream-100);
+  text-shadow: 0 0 10px var(--cream-glow), 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .hero-title {
-  margin: 0 0 20px;
-  font-size: clamp(36px, 6vw, 64px);
+  margin: 0 0 24px;
+  font-size: clamp(42px, 7vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .gradient-text {
@@ -482,19 +525,35 @@ a {
 }
 
 .hero-subtitle {
-  margin: 0 0 32px;
+  margin: 0 0 40px;
   font-size: clamp(18px, 2.5vw, 22px);
-  color: var(--ink-muted);
-  max-width: 65ch;
+  color: var(--ink);
+  max-width: 70ch;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 20px;
   justify-content: center;
+  align-items: center;
+}
+
+.btn-hero-primary {
+  padding: 18px 32px !important;
+  font-size: clamp(18px, 2vw, 20px) !important;
+  font-weight: 700 !important;
+  min-width: 200px;
+  box-shadow: var(--glow-midnight), var(--glow-cream), 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+}
+
+.btn-hero-secondary {
+  padding: 14px 24px !important;
+  font-size: clamp(15px, 1.8vw, 17px) !important;
+  opacity: 0.9;
 }
 
 /* Sections */
@@ -1262,6 +1321,26 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  .hero {
+    min-height: 500px;
+  }
+
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-hero-primary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-hero-secondary {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .nav-toggle {
     display: inline-flex;
     align-items: center;

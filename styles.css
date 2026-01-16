@@ -139,41 +139,52 @@ a {
   z-index: 50;
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(20px);
-  background: linear-gradient(
-    180deg,
-    rgba(4, 28, 24, 0.92) 0%,
-    rgba(6, 37, 33, 0.88) 50%,
-    rgba(4, 28, 24, 0.92) 100%
-  );
+  background: #000000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: background 300ms var(--ease), opacity 300ms var(--ease), box-shadow 300ms var(--ease), border-color 300ms var(--ease);
-  opacity: 0.92;
+  transition: background 400ms var(--ease), opacity 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
+  opacity: 0.95;
 }
 
 .site-header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--midnight-glow), var(--cream-glow));
-  opacity: 0.12;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 28, 24, 0.92) 0%,
+    rgba(6, 37, 33, 0.88) 50%,
+    rgba(4, 28, 24, 0.92) 100%
+  );
+  opacity: 0;
   pointer-events: none;
   z-index: -1;
+  transition: opacity 400ms var(--ease);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--midnight-glow), var(--cream-glow));
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 400ms var(--ease);
 }
 
 .site-header[data-scrolled="true"] {
   border-bottom-color: rgba(244, 238, 223, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(4, 28, 24, 0.98) 0%,
-    rgba(6, 37, 33, 0.96) 50%,
-    rgba(4, 28, 24, 0.98) 100%
-  );
+  background: #000000;
   opacity: 1;
   box-shadow: var(--glow-midnight), 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
 .site-header[data-scrolled="true"]::before {
-  opacity: 0.18;
+  opacity: 1;
+}
+
+.site-header[data-scrolled="true"]::after {
+  opacity: 0.15;
 }
 
 .header-inner {
@@ -361,6 +372,13 @@ a {
   box-shadow: var(--glow-midnight), 0 14px 45px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(8, 50, 44, 0.6);
   position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-cream > * {
+  position: relative;
+  z-index: 2;
 }
 
 .btn-cream::before {
@@ -377,6 +395,36 @@ a {
   transition: opacity 200ms var(--ease);
 }
 
+.btn-cream::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  animation: lensFlare 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes lensFlare {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+}
+
 .btn-cream:hover::before,
 .btn-cream:focus-visible::before {
   opacity: 0.5;
@@ -386,6 +434,11 @@ a {
 .btn-cream:focus-visible {
   background: linear-gradient(135deg, var(--midnight-700), var(--midnight-800));
   box-shadow: var(--glow-midnight), var(--glow-cream), 0 18px 55px rgba(0, 0, 0, 0.6);
+}
+
+.btn-cream:hover::after,
+.btn-cream:focus-visible::after {
+  animation-duration: 1.5s;
 }
 
 .btn-ghost {

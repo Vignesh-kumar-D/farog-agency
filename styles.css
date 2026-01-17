@@ -960,6 +960,10 @@ a {
   background: rgba(4, 28, 24, 0.15);
 }
 
+.section-impact .section-title {
+  text-align: center;
+}
+
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1092,6 +1096,10 @@ a {
   background: rgba(4, 28, 24, 0.15);
 }
 
+.section-faq .section-title {
+  text-align: center;
+}
+
 .faq-list {
   display: grid;
   gap: 12px;
@@ -1149,6 +1157,38 @@ a {
   padding: clamp(60px, 8vw, 100px) 0;
 }
 
+.contact-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-content .section-title {
+  text-align: center;
+}
+
+.contact-grid-reverse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 5vw, 60px);
+  align-items: center;
+}
+
+.contact-cta-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn-connect {
+  padding: clamp(20px, 4vw, 32px) clamp(32px, 6vw, 56px);
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 700;
+  min-width: fit-content;
+  width: 100%;
+  max-width: 500px;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1161,7 +1201,7 @@ a {
 }
 
 .contact-text {
-  margin: 16px 0 0;
+  margin: 16px 0 32px;
   color: var(--ink-muted);
   font-size: 16px;
   line-height: 1.6;
@@ -1338,6 +1378,26 @@ textarea {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .contact-grid-reverse {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 6vw, 48px);
+    text-align: center;
+  }
+
+  .contact-cta-wrapper {
+    justify-content: center;
+    order: -1;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .btn-connect {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1418,5 +1478,25 @@ textarea {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .contact-grid-reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .contact-cta-wrapper {
+    justify-content: center;
+    order: -1;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .btn-connect {
+    width: 100%;
+    max-width: 100%;
   }
 }

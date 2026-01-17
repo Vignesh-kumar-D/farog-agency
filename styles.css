@@ -250,6 +250,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 .nav-toggle {
@@ -261,6 +262,8 @@ a {
   height: 44px;
   color: var(--ink);
   cursor: pointer;
+  position: relative;
+  z-index: 101;
 }
 
 .nav-toggle-lines {
@@ -1362,6 +1365,7 @@ textarea {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    z-index: 101;
   }
 
   .nav-panel {
@@ -1378,10 +1382,13 @@ textarea {
     border-radius: 16px;
     padding: 12px;
     box-shadow: var(--shadow);
+    z-index: 100;
+    pointer-events: none;
   }
 
   .nav-panel[data-open="true"] {
     display: flex;
+    pointer-events: auto;
   }
 
   .nav-link {

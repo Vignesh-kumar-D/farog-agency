@@ -48,6 +48,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #000000;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,6 +67,24 @@ body {
   letter-spacing: 0.01em;
   position: relative;
   min-height: 100vh;
+}
+
+/* Extend footer background color below footer to prevent black when scrolling past */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 28, 24, 1) 0%,
+    rgba(6, 37, 33, 0.98) 50%,
+    rgba(4, 28, 24, 1) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 body::before {
@@ -1256,14 +1275,18 @@ textarea {
 /* Footer */
 .footer {
   border-top: 1px solid rgba(244, 238, 223, 0.2);
-  padding: 32px 0;
+  padding: clamp(24px, 4vw, 36px) 0;
   background: linear-gradient(
     180deg,
-    rgba(4, 28, 24, 0.95) 0%,
-    rgba(6, 37, 33, 0.92) 50%,
-    rgba(4, 28, 24, 0.95) 100%
+    rgba(4, 28, 24, 1) 0%,
+    rgba(6, 37, 33, 0.98) 50%,
+    rgba(4, 28, 24, 1) 100%
   );
   position: relative;
+  min-height: auto;
+  width: 100%;
+  margin-top: auto;
+  overflow: hidden;
 }
 
 .footer::before {
@@ -1271,7 +1294,7 @@ textarea {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, var(--midnight-glow), var(--cream-glow));
-  opacity: 0.12;
+  opacity: 0.15;
   pointer-events: none;
   z-index: 0;
 }
@@ -1299,15 +1322,23 @@ textarea {
 
 .footer-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 14px;
+  gap: clamp(24px, 4vw, 40px);
   flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 250px;
 }
 
 .footer-brand {
   font-weight: 750;
-  font-size: 18px;
+  font-size: clamp(18px, 2.2vw, 22px);
   background: linear-gradient(135deg, var(--midnight-800), var(--cream-100), var(--midnight-700));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1316,32 +1347,95 @@ textarea {
 }
 
 .footer-sub {
-  font-size: 13px;
+  font-size: clamp(13px, 1.6vw, 15px);
   color: var(--ink-muted);
+}
+
+.footer-email {
+  font-size: clamp(13px, 1.6vw, 15px);
+  color: var(--ink-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.footer-email-link {
+  color: var(--cream-100);
+  text-decoration: underline;
+  text-decoration-color: rgba(244, 238, 223, 0.3);
+  text-underline-offset: 3px;
+  transition: color 160ms var(--ease), text-shadow 160ms var(--ease), text-decoration-color 160ms var(--ease);
+}
+
+.footer-email-link:hover {
+  color: var(--cream-50);
+  text-shadow: 0 0 8px var(--cream-glow);
+  text-decoration-color: rgba(244, 238, 223, 0.6);
+}
+
+.footer-copyright {
+  font-size: clamp(12px, 1.4vw, 14px);
+  color: var(--ink-faint);
   margin-top: 4px;
 }
 
 .footer-right {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
   align-items: center;
 }
 
-.footer-link {
-  font-size: 14px;
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(244, 238, 223, 0.2);
+  background: rgba(8, 50, 44, 0.4);
   color: var(--ink-muted);
-  transition: color 160ms var(--ease), text-shadow 160ms var(--ease);
+  transition: all 180ms var(--ease);
   position: relative;
+  overflow: hidden;
 }
 
-.footer-link:hover {
+.footer-social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--midnight-glow), var(--cream-glow));
+  opacity: 0;
+  transition: opacity 180ms var(--ease);
+  z-index: 0;
+}
+
+.footer-social-link svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 180ms var(--ease);
+}
+
+.footer-social-link:hover {
+  border-color: rgba(244, 238, 223, 0.4);
+  background: rgba(8, 50, 44, 0.6);
   color: var(--cream-100);
-  text-shadow: 0 0 8px var(--cream-glow);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-midnight), 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.footer-link.muted {
-  color: var(--ink-faint);
+.footer-social-link:hover::before {
+  opacity: 0.2;
+}
+
+.footer-social-link:hover svg {
+  transform: scale(1.1);
 }
 
 /* Responsive Design */
@@ -1478,6 +1572,16 @@ textarea {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-right {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .contact-grid-reverse {

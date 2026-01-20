@@ -1,4 +1,6 @@
 // Header scroll functionality - ensures it works in production
+import { aboutMeContent } from './constants/about-me.js';
+
 (function() {
   'use strict';
   
@@ -75,11 +77,46 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  function initAboutMe() {
+    const titleEl = document.querySelector("[data-about-title]");
+    const contentEl = document.querySelector("[data-about-content]");
+    const imageEl = document.querySelector("[data-about-image]");
+
+    if (!contentEl) return;
+
+    // Set title
+    if (titleEl && aboutMeContent.title) {
+      titleEl.textContent = aboutMeContent.title;
+    }
+
+    // Populate content - only two paragraphs
+    if (aboutMeContent.paragraph1) {
+      const p1 = document.createElement('p');
+      p1.className = 'about-intro';
+      p1.innerHTML = aboutMeContent.paragraph1;
+      contentEl.appendChild(p1);
+    }
+
+    if (aboutMeContent.paragraph2) {
+      const p2 = document.createElement('p');
+      p2.className = 'about-cta';
+      p2.innerHTML = aboutMeContent.paragraph2;
+      contentEl.appendChild(p2);
+    }
+
+    // Set image
+    if (imageEl && aboutMeContent.image) {
+      imageEl.src = aboutMeContent.image.src;
+      imageEl.alt = aboutMeContent.image.alt;
+    }
+  }
+
   // Initialize everything
   function init() {
     initHeaderScroll();
     initMenu();
     initYear();
+    initAboutMe();
   }
 
   // Run when DOM is ready

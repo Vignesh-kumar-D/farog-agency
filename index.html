@@ -279,21 +279,17 @@
         <div class="container">
           <div class="about-me-grid">
             <div class="about-me-content">
-              <h2 class="section-title">About Me</h2>
-              <div class="about-me-text">
-                <p class="about-intro">
-                  Hey! 👋 I'm Farog Shaikh, celebrating <strong>27 years of being absolutely obsessed with Content Creation</strong>. 🎂✨
-                </p>
-                <p>
-                  I run an agency that helps content creators build their brands, grow their audiences, and turn passion into profit. We bring a mix of data-driven insights and creative storytelling that actually converts—helping creators scale from zero to thousands of engaged followers.
-                </p>
-                <p class="about-cta">
-                  Ready to level up your content creator game? Let's make your brand as fire as my birthday candles. 🎉
-                </p>
+              <h2 class="section-title" data-about-title>About Me</h2>
+              <div class="about-me-text" data-about-content>
+                <!-- Content will be populated from constants/about-me.js -->
               </div>
             </div>
-            <div class="about-me-image">
-              <img src="./images/farog.png" alt="Farog Shaikh - Birthday vibes" class="about-photo" />
+            <div class="about-me-image-wrapper">
+              <div class="about-me-image-splash about-me-image-splash-1"></div>
+              <div class="about-me-image-splash about-me-image-splash-2"></div>
+              <div class="about-me-image">
+                <img src="./images/farog.png" alt="Farog Shaikh" class="about-photo" data-about-image />
+              </div>
             </div>
           </div>
         </div>

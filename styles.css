@@ -1796,10 +1796,18 @@ textarea {
     min-height: 500px;
   }
 
-
   .hero-cta {
     flex-direction: column;
     width: 100%;
+  }
+
+  .contact-info {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .contact-info .section-title {
+    text-align: center;
   }
 
   .btn-hero-primary {

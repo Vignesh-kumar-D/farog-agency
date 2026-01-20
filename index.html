@@ -311,43 +311,22 @@
             <h2 class="section-title">Best in the game</h2>
             <p class="section-subtitle">they said it, not us</p>
           </div>
-          <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Farog Media transformed my LinkedIn presence. I went from 500 to 50K followers in 6 months. Their content strategy is unmatched."
-              </p>
-              <div class="testimonial-author">
-                <div class="author-avatar"></div>
-                <div class="author-info">
-                  <div class="author-name">Sarah Chen</div>
-                  <div class="author-role">Tech Founder</div>
-                </div>
+          <div class="testimonials-carousel-wrapper">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial" data-carousel-prev>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="testimonials-carousel" data-carousel>
+              <div class="testimonials-track" data-carousel-track>
+                <!-- Testimonials will be populated from constants/testimonials.js -->
               </div>
-            </article>
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "The team at Farog doesn't just create content—they build systems. My engagement tripled and I'm closing more deals than ever."
-              </p>
-              <div class="testimonial-author">
-                <div class="author-avatar"></div>
-                <div class="author-info">
-                  <div class="author-name">Marcus Johnson</div>
-                  <div class="author-role">B2B Executive</div>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Best investment I've made for my personal brand. The ROI is incredible and the content quality is consistently high."
-              </p>
-              <div class="testimonial-author">
-                <div class="author-avatar"></div>
-                <div class="author-info">
-                  <div class="author-name">Alex Rivera</div>
-                  <div class="author-role">Content Creator</div>
-                </div>
-              </div>
-            </article>
+            </div>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial" data-carousel-next>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
       </section>

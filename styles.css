@@ -1170,28 +1170,31 @@ a {
 .testimonial-card-front,
 .testimonial-card-back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: var(--radius-lg);
-  overflow: hidden;
   border: 1px solid rgba(244, 238, 223, 0.2);
   box-shadow: var(--glow-midnight), 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .testimonial-card-front {
-  position: relative;
-  cursor: pointer;
   transform: rotateY(0deg);
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .testimonial-card-back {
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, rgba(4, 28, 24, 0.95), rgba(6, 37, 33, 0.95));
+  background: #041c18;
   padding: 32px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  overflow-y: auto;
 }
 
 .testimonial-photo {
@@ -1280,16 +1283,17 @@ a {
 
 .testimonial-detail {
   flex: 1;
-  overflow-y: auto;
-  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-detail-text {
   margin: 0 0 24px;
-  color: var(--ink);
+  color: #fbf7ef;
   font-size: 16px;
   line-height: 1.7;
   font-style: italic;
+  flex: 1;
 }
 
 /* Scrollbar styling for testimonial detail */
@@ -1313,6 +1317,7 @@ a {
 
 .testimonial-author-detail {
   padding-top: 20px;
+  margin-top: auto;
   border-top: 1px solid rgba(244, 238, 223, 0.2);
 }
 
@@ -1320,34 +1325,35 @@ a {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 4px;
-  color: var(--cream-100);
+  color: #fbf7ef;
 }
 
 .testimonial-author-detail .author-role {
   font-size: 14px;
-  color: var(--ink-muted);
+  color: #e8dec9;
 }
 
 .testimonial-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(8, 50, 44, 0.6);
-  border: 1px solid rgba(244, 238, 223, 0.2);
-  color: var(--cream-100);
+  background: rgba(8, 50, 44, 0.8);
+  border: 1px solid rgba(244, 238, 223, 0.3);
+  color: #fbf7ef;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 200ms var(--ease);
+  z-index: 10;
 }
 
 .testimonial-close-btn:hover {
-  background: rgba(8, 50, 44, 0.9);
-  border-color: rgba(244, 238, 223, 0.4);
+  background: rgba(8, 50, 44, 1);
+  border-color: rgba(244, 238, 223, 0.5);
   transform: rotate(90deg);
 }
 
